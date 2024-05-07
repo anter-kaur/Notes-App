@@ -9,11 +9,16 @@ import axios from 'axios'
 const Dashboard = () => {
     const navigate=useNavigate()
     const [user,setUser]=useState('')
+    const token = localStorage.getItem("token")
 
     useEffect(()=>{
         async function datafun(){
             try{
-            const response=await axios.get('https://notes-app-backend-witv.onrender.com/api/v1/user/dashboard',{
+            const response=await axios.get('https://notes-app-backend-witv.onrender.com/api/v1/user/dashboard',
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
                 withCredentials:true
             })
             setUser(response?.data?.user?.username)

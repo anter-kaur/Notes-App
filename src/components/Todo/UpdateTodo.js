@@ -10,6 +10,7 @@ const UpdateTodo=()=>{
     const [notes,setNotes]=useState('')
     const {id}=useParams()
     const navigate=useNavigate();
+    const token = localStorage.getItem("token")
 
     useEffect(()=>{
         async function fetchdata(){
@@ -28,7 +29,11 @@ const UpdateTodo=()=>{
         e.preventDefault();
         try{
         const response=await axios.patch(`https://notes-app-backend-witv.onrender.com/api/v1/todo/updatepost/${id}`,{notes:notes},
-            {withCredentials:true}
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
+                withCredentials:true}
         )
         toast.success(response.data.message)
         navigate('/list')

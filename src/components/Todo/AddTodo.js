@@ -7,12 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddTodo=()=>{
     const [notes,setNotes]=useState('')
+    const token = localStorage.getItem("token")
 
     const submitHandler=async (e)=>{
         e.preventDefault();
         try{
         const response=await axios.post('https://notes-app-backend-witv.onrender.com/api/v1/todo/addpost',{notes:notes},
-            {withCredentials:true}
+            {
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
+                withCredentials:true}
         )
         // console.log(response.data.message)
         toast.success(response.data.message)

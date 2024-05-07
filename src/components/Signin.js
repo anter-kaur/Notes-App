@@ -8,6 +8,7 @@ import {Link } from 'react-router-dom'
 
 const Signin = () => {
     const [input,setInput]=useState([{email:'',password:''}]);
+    const token = localStorage.getItem("token")
     const navigate=useNavigate();
     const changeHandler=(e)=>{
         setInput({
@@ -20,11 +21,15 @@ const Signin = () => {
         e.preventDefault();
         try{
             const response=await axios.post('https://notes-app-backend-witv.onrender.com/api/v1/user/login',input,{
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
                 withCredentials:true
             });
             toast.success(response.data.message)
             navigate('/dashboard')
-            
+            // console.log(response.data.token);
+            localStorage.setItem("token",response.data.token)
         }
         catch(error){
             toast.error(error.response.data.message)

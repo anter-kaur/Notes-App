@@ -14,6 +14,7 @@ const List = () => {
     const [total, setTotal] = useState()
     const [pagenumber, setPagenumber] = useState(1)
     const [limit, setLimit] = useState(4)
+    const token = localStorage.getItem("token")
     const navigate=useNavigate();
     
 // https://notes-app-backend-witv.onrender.com
@@ -21,6 +22,9 @@ const List = () => {
     const usersFun = async () => {
         try {
             const getUsers = await axios.get(`https://notes-app-backend-witv.onrender.com/api/v1/todo/getposts?page=${pagenumber}`, {
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
                 withCredentials: true
             })
             setAllPosts(getUsers.data.todos.reverse())
