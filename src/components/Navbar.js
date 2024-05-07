@@ -8,7 +8,7 @@ const Navbar = () => {
     const navigate=useNavigate()
     const logoutHandler=async ()=>{
         try{
-            const response=await axios.get('http://localhost:2000/api/v1/user/logout',{
+            const response=await axios.get('https://notes-app-backend-umber.vercel.app/api/v1/user/logout',{
                 withCredentials:true
             })
             toast.success(response.data.message)
