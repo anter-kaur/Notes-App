@@ -14,7 +14,7 @@ const UpdateTodo=()=>{
     useEffect(()=>{
         async function fetchdata(){
             try{
-            const response=await axios.get(`https://notes-app-backend-umber.vercel.app/api/v1/todo/getsinglepost/${id}`)
+            const response=await axios.get(`https://notes-app-backend-witv.onrender.com/api/v1/todo/getsinglepost/${id}`)
             setNotes(response.data.notes.notes)
             }
             catch(error){
@@ -27,7 +27,7 @@ const UpdateTodo=()=>{
     const submitHandler=async (e)=>{
         e.preventDefault();
         try{
-        const response=await axios.patch(`https://notes-app-backend-umber.vercel.app/api/v1/todo/updatepost/${id}`,{notes:notes},
+        const response=await axios.patch(`https://notes-app-backend-witv.onrender.com/api/v1/todo/updatepost/${id}`,{notes:notes},
             {withCredentials:true}
         )
         toast.success(response.data.message)

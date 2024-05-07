@@ -35,7 +35,7 @@ const Signup = () => {
 
         try {
             await validationSchema.validate(input,{abortEarly:false})
-            const response = await axios.post('https://notes-app-backend-umber.vercel.app/api/v1/user/register', input)
+            const response = await axios.post('https://notes-app-backend-witv.onrender.com/api/v1/user/register', input)
             toast.success(response.data.message)
             navigate('/signin')
         }

@@ -16,9 +16,11 @@ const List = () => {
     const [limit, setLimit] = useState(4)
     const navigate=useNavigate();
     
+// https://notes-app-backend-witv.onrender.com
+
     const usersFun = async () => {
         try {
-            const getUsers = await axios.get(`https://notes-app-backend-umber.vercel.app/api/v1/todo/getposts?page=${pagenumber}`, {
+            const getUsers = await axios.get(`https://notes-app-backend-witv.onrender.com/api/v1/todo/getposts?page=${pagenumber}`, {
                 withCredentials: true
             })
             setAllPosts(getUsers.data.todos.reverse())

@@ -11,7 +11,7 @@ const AddTodo=()=>{
     const submitHandler=async (e)=>{
         e.preventDefault();
         try{
-        const response=await axios.post('https://notes-app-backend-umber.vercel.app/api/v1/todo/addpost',{notes:notes},
+        const response=await axios.post('https://notes-app-backend-witv.onrender.com/api/v1/todo/addpost',{notes:notes},
             {withCredentials:true}
         )
         // console.log(response.data.message)
