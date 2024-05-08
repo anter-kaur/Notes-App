@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import * as yup from 'yup'; 
 
 const Signup = () => {
-    const [input, setInput] = useState([{ username: '', email: '', password: '', phone: '' }]);
+    const [input, setInput] = useState({ username: '', email: '', password: '', phone: '' });
     const navigate = useNavigate();
     const changeHandler = (e) => {
         setInput({
