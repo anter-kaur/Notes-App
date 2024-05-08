@@ -54,7 +54,7 @@ const List = () => {
             toast.success(deluser.data.message)
         }
         catch (error) {
-            toast.error(toast.error(error.response.data.message))
+            toast.error(error.response.data.message)
         }
     }
 
@@ -83,7 +83,7 @@ const List = () => {
                                     <NavLink to={`/update/${post._id}`} style={{ color: 'rgb(152, 152, 221)' }}>
                                         <FaRegEdit />
                                     </NavLink>
-                                    <MdOutlineDelete onClick={() => delHandler(post._id)} style={{ cursor: 'pointer' }} />
+                                    <MdOutlineDelete onClick={() => delHandler(post._id)} style={{ cursor: 'pointer' }} /> 
                                 </div>
                             </div>
                         ))
