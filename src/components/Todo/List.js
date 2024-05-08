@@ -45,6 +45,9 @@ const List = () => {
     const delHandler = async (id) => {
         try {
             const deluser = await axios.delete(`https://notes-app-backend-witv.onrender.com/api/v1/todo/deletepost/${id}`, {
+                headers:{
+                    Authorization:`Bearer ${token}`,
+                },
                 withCredentials: true
             })
             usersFun();
