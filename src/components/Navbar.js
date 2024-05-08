@@ -46,7 +46,7 @@ const Navbar = () => {
                             Add a Note
                         </li>
                     </NavLink>
-                    <button style={{ color: 'rgb(152, 152, 221)', background: 'white', fontWeight:'bold', border:'none',fontSize:'16px' }} onClick={logoutHandler}>
+                    <button style={{ color: 'rgb(152, 152, 221)', background: 'white', fontWeight:'bold', border:'none',fontSize:'16px', cursor:'pointer' }} onClick={logoutHandler}>
                         <li >
                             Logout
                         </li>
